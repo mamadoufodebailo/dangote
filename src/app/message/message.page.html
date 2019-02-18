@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <img height="90" [src]="logo">
+        </ion-col>
+        <ion-col>
+          <ion-title color="primary">
+            {{nom|uppercase}}
+          </ion-title>
+          <ion-item>
+            {{focus}}
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list padding>
+      <ion-item>
+        Votre Commande a été bien envoyé !
+      </ion-item>
+      <ion-button (click)="closeMessage()">
+        <ion-icon slot="icon-only" name="close-circle" color="primary"></ion-icon>
+      </ion-button>
+  </ion-list>
+</ion-content>

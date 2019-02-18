@@ -1,0 +1,52 @@
+<ion-header color="light">
+  <ion-toolbar color="light">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <a (click)="onClose()">
+            <img height="90" [src]="logo">
+          </a>
+        </ion-col>
+        <ion-col>
+          <ion-title color="primary">
+            {{nom|uppercase}}
+          </ion-title>
+          <ion-item>
+            {{focus}}
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-icon (click)="onClose()" name="arrow-round-back" slot="icon-only"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card>
+
+    <ion-card-header>
+      <ion-card-title>{{actualite?.titre}}</ion-card-title>
+    </ion-card-header>
+
+    <img [src]="actualite?.photo">
+
+    <ion-item>
+      <p text-wrap>
+        {{actualite?.description}}
+      </p>
+    </ion-item>
+
+    <ion-card-content>
+      {{actualite?.contenu}}
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

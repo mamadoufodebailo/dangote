@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <a (click)="goToPageBack()">
+            <img height="90" [src]="logo">
+          </a>
+        </ion-col>
+        <ion-col>
+          <ion-title color="success">
+            {{nom|uppercase}}
+          </ion-title>
+          <ion-item>
+            {{focus}}
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-icon (click)="goToPageBack()" name="arrow-round-back" slot="icon-only"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-toolbar color="success">
+
+    <ion-segment [(ngModel)]="page">
+      <ion-segment-button value="fondation">
+        Fondation
+      </ion-segment-button>
+
+      <ion-segment-button value="activite">
+        Activité
+      </ion-segment-button>
+
+      <ion-segment-button value="partenaire">
+        Parténaire
+      </ion-segment-button>
+    </ion-segment>
+
+  </ion-toolbar>
+
+  <div [ngSwitch]="page">
+    <ion-list padding *ngSwitchCase="'fondation'">
+      <ion-item>
+        <img src="assets/images/fondation/siege.jpg">
+      </ion-item>
+      <ion-item>
+        <p text-center text-wrap>
+          Créée en 2010 et reconnue d'utilité publique, la Fondation SOCOCIM intervient en parallèle des activités de la cimenterie.
+
+          Elle finance des projets à destination des femmes et des jeunes, et aide les populations à sortir de la pauvreté.
+
+          La Fondation SOCOCIM a permis la création de 175 emplois depuis le démarrage de son activité. Elle s'implique également
+          auprès des associations sénégalaises, sur des projets éducatifs, environnementaux et socio-culturels. Elle anime également
+          le plus grand centre culturel du département de Rufisque, mettant notamment à la disposition des populations une large bibliothèque.
+        </p>
+      </ion-item>
+
+      <ion-item>
+        <h5 text-center text-wrap="" style="color:green">
+          "Le rôle de la Fondation ne consiste pas à faire de l'assistanat. Elle donne la chance à des personnes désireuses de
+          réaliser leurs projets et de devenir autonomes. Si vous présentez un projet, si vous avez un bon business plan validé
+          par le Conseil d'administration, vous obtenez votre financement et vous vous développez de votre propre chef, en autonomie"
+        </h5>
+      </ion-item>
+
+      <ion-item>
+        <h6 style="color: greenyellow;" text-center text-wrap>Patricia Diagné, administratrice de la Fondation.</h6>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-list padding *ngSwitchCase="'activite'">
+      <ion-item>
+        Créée en 2010, la Fondation Sococim se distingue par l’appui qu’elle apporte au développement de projets économiques en vue de
+        favoriser le mieux-être social par la création d’emplois et de richesses.
+
+        La Fondation intervient pour la mise en valeur de deux domaines privilégiés : l’environnement et le patrimoine. C’est ainsi que
+        la Fondation s’investit également en appui à la culture, à l’éducation et au sport. Enfin, la Fondation mène des actions de
+        solidarité qui répondent soit à des situations d’urgence, soit à des sollicitations en lien avec ses principales activités.
+      </ion-item>
+
+      <ion-item>
+        <img src="assets/images/fondation/actions.jpg">
+      </ion-item>
+
+    </ion-list>
+
+    <ion-list padding *ngSwitchCase="'partenaire'">
+      <ion-item>
+        <div>
+
+          <h6 style="color: #0bb8cc">
+            Association pour le Développement de Medinatoul Mounawara « ADM » (Bargny)
+          </h6>
+
+          <p>Yacine Fall Cissé, Présidente</p>
+
+          <p>Tél. : +221 33 836 19 94</p>
+
+          <hr>
+        </div>
+      </ion-item>
+
+    </ion-list>
+
+  </div>
+
+</ion-content>

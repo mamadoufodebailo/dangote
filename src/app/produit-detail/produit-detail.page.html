@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <a (click)="onClose()">
+            <img height="90" [src]="logo">
+          </a>
+        </ion-col>
+        <ion-col>
+          <ion-title color="primary">
+            {{nom|uppercase}}
+          </ion-title>
+          <ion-item>
+            {{focus}}
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-icon (click)="onClose()" name="arrow-round-back" slot="icon-only"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card>
+    <ion-item>
+      <h4 text-wrap="" style="color: green">{{produit?.text}}</h4>
+    </ion-item>
+    <img [src]="produit?.photo" height="250" width="210">
+    <ion-card-content>
+      <p style="color: #0bb8cc;">Domaines Utilisation: </p>
+      <ul>
+        <li *ngFor="let desc of produit?.description">{{desc}}</li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

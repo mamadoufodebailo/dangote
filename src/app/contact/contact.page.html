@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <a (click)="goToPageBack()">
+          <img height="90" [src]="logo">
+        </a>
+      </ion-col>
+      <ion-col>
+        <ion-title color="primary">
+          {{nom|uppercase}}
+        </ion-title>
+        <ion-item>
+          {{focus}}
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list padding>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-icon (click)="goToPageBack()" name="arrow-round-back" slot="icon-only"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-item>
+      <header>
+        <h4 [ngStyle]="{color: couleur}">Dangote Cement - Nous Contacter</h4>
+
+        <p>Bureau / Usine Adresse: Dangote Cement Sénégal,
+          14 Bis Rue Béranger Ferraud, 4ème étage Gauche, Dakar</p>
+        <p>Ventes: senegal.sales@dangotecement.com</p>
+
+        <h5 style="color: blue;">CONTACTS</h5>
+
+        <p text-wrap>Country Manager - Luk Haelterman [ luk.haelterman@dangote.com ]</p>
+        <p text-wrap>Directeur de l' usine - Athanasios Bampos [ athanasios.bampos@dangote.com ]</p>
+        <p text-wrap>Sales Manager - Serigne Dieng [ serigne.dieng@dangote.com ]</p>
+        <p text-wrap>Recrutement - Pierre Sene [ sene.gaetan@dangote.com ]</p>
+        <p text-wrap>CFO - Ousmane Mbaye [ ousmane.mbaye@dangote.com ]</p>
+
+        <p>Rond-point Sococim (Bata) Rufisque</p>
+
+      </header>
+    </ion-item>
+
+    <h5 style="color: blue;">VOTRE MESSAGE</h5>
+
+    <form #f="ngForm" (ngSubmit)="addContact(f.value)">
+      <ion-item>
+        <ion-label>Prénom</ion-label>
+        <ion-input required="=required" name="prenom" [(ngModel)]="contact.prenom"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Nom</ion-label>
+        <ion-input required="=required" name="nom" [(ngModel)]="contact.nom"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Email</ion-label>
+        <ion-input required="=required" name="email" [(ngModel)]="contact.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Téléphone</ion-label>
+        <ion-input required="=required" name="telephone" [(ngModel)]="contact.telephone"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Message</ion-label>
+        <ion-textarea required="=required" name="message" [(ngModel)]="contact.message"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{message}}</ion-label>
+      </ion-item>
+
+      <ion-button type="submit" [disabled]="!f.valid" expand="full">Soumettre</ion-button>
+    </form>
+
+  </ion-list>
+
+</ion-content>

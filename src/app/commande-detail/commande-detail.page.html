@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <a (click)="goToPageBack()">
+            <img height="90" [src]="logo">
+          </a>
+        </ion-col>
+        <ion-col>
+          <ion-title color="primary">
+            {{nom|uppercase}}
+          </ion-title>
+          <ion-item>
+            {{focus}}
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-icon (click)="goToPageBack()" name="arrow-round-back" slot="icon-only"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>Produit</ion-col>
+      <ion-col>Quantité</ion-col>
+      <ion-col>Total</ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let p of panier">
+      <ion-col><img height="70" [src]="p.photo"></ion-col>
+      <ion-col>
+        <p><ion-badge>{{p.nombre +'.'+ p.centime}}</ion-badge> Tonnes</p>
+      </ion-col>
+      <ion-col>
+        <ion-badge>{{(((p.nombre * 20) * p.prix) * 0.9) + (p.centime * p.prix)}}</ion-badge>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>Livraison</ion-col>
+      <ion-col></ion-col>
+      <ion-col>{{livraison}}</ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>Somme total</ion-col>
+      <ion-col></ion-col>
+      <ion-col>{{livraison + price}}</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button (click)="addInfo()" [disabled]="panier.length <= 0">
+    <ion-icon name="redo"></ion-icon>
+  </ion-button>
+
+</ion-content>

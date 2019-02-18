@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <a (click)="goToPageBack()">
+            <img height="90" [src]="logo">
+          </a>
+        </ion-col>
+        <ion-col>
+          <ion-title color="primary">
+            {{nom|uppercase}}
+          </ion-title>
+          <ion-item>
+            {{focus}}
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list padding>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-icon (click)="goToPageBack()" name="arrow-round-back" slot="icon-only"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div *ngIf="type == 'particulier';else societe">
+      <ion-item>
+        <ion-label text-wrap>Veuillez entrer vos informations</ion-label>
+      </ion-item>
+
+      <form #f="ngForm" (ngSubmit)="addPerson(f.value)">
+        <ion-item>
+          <ion-label>Prénom</ion-label>
+          <ion-input required="required" name="prenom" [(ngModel)]="personne.prenom"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Nom</ion-label>
+          <ion-input required="required" name="nom" [(ngModel)]="personne.nom"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Téléphone</ion-label>
+          <ion-input pattern="[0-9]{9}" name="telephone" required="required" [(ngModel)]="personne.telephone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Adresse</ion-label>
+          <ion-textarea required="required" name="adresse" [(ngModel)]="personne.adresse"></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label>Email</ion-label>
+          <ion-input name="email" pattern="[a-zA-Z0-9_.-]+@[a-zA-Z0-9]+\.[a-z]{2,4}" required="required" [(ngModel)]="personne.email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{message}}</ion-label>
+        </ion-item>
+        <ion-button expand="full" type="submit" [disabled]="!f.valid">
+          <ion-icon name="send"></ion-icon>
+        </ion-button>
+      </form>
+    </div>
+
+    <ng-template #societe>
+
+      <ion-item>
+        <ion-label text-wrap>Veuillez entrer les informations de la sociéte</ion-label>
+      </ion-item>
+
+      <form #p="ngForm" (ngSubmit)="addSociete(p.value)">
+        <ion-item>
+          <ion-label>Nom</ion-label>
+          <ion-input name="nom" required="required" [(ngModel)]="entreprise.nom"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Email</ion-label>
+          <ion-input name="email" pattern="[a-zA-Z0-9_.-]+@[a-zA-Z0-9]+\.[a-z]{2,4}" required="required"
+                     [(ngModel)]="entreprise.email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Adresse</ion-label>
+          <ion-textarea required="required" name="adresse" [(ngModel)]="entreprise.adresse"></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label>Prénom représentant</ion-label>
+          <ion-input required="required" name="prenom_representant" [(ngModel)]="entreprise.prenom_representant"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Nom représentant</ion-label>
+          <ion-input required="required" name="nom_representant" [(ngModel)]="entreprise.nom_representant"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Téléphone représentant</ion-label>
+          <ion-input pattern="[0-9]{9}" name="telephone_representant" required="required"
+                     [(ngModel)]="entreprise.telephone_representant"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{message}}</ion-label>
+        </ion-item>
+        <ion-button expand="full" type="submit" [disabled]="!p.valid">
+          <ion-icon name="send"></ion-icon>
+        </ion-button>
+      </form>
+
+    </ng-template>
+
+  </ion-list>
+
+</ion-content>

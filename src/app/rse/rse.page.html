@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <a (click)="goPageBack()">
+          <img height="90" [src]="logo">
+        </a>
+      </ion-col>
+      <ion-col>
+        <ion-title color="success">
+          {{nom|uppercase}}
+        </ion-title>
+        <ion-item>
+          {{focus}}
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+
+  <ion-list padding>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-icon (click)="goPageBack()" name="arrow-round-back" slot="icon-only"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-item>
+      <div>
+        <h4 text-center text-wrap style="color:#A1C434;">
+          SOCOCIM Industries, acteur du développement durable
+        </h4>
+
+        <p text-wrap text-center>
+          SOCOCIM Industries fait du respect de l’environnement
+          un crédo da sa politique de développement durable.
+          Cette volonté s’est traduite par la certification ISO
+          14001 de la cimenterie. La prise en compte des aspects
+          sociaux, tant au niveau des travailleurs que des populations
+          riveraines, fait de la cimenterie une usine, aujourd’hui reconnue
+          comme acteur majeur en matière de Responsabilité Sociétale des
+          Entreprises (RSE) au Sénégal.
+        </p>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <div>
+        <h4 text-center text-wrap style="color:#A1C434;">
+          Utilisation de biocombustible avec la culture de Jatropha en
+          substitution du charbon importé.
+        </h4>
+
+        <img src="assets/images/jatrophas.jpg">
+
+        <p text-wrap text-center>
+          Depuis 2007, 500 hectares ont été plantés, par plusieurs centaines
+          de personnes, sur les carrières de Bargny et Pout. SOCOCIM Industries
+          a présenté ce projet au niveau de la convention cadre des nations unies
+          pour le changement climatique pour obtenir la certiﬁcation au Mécanisme
+          de Développement Propre.
+        </p>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <div>
+        <h4 text-center text-wrap style="color:#A1C434;">
+          Réalisation du poumon vert de la carrière de Bargny,
+        </h4>
+
+        <img src="assets/images/large.jpg">
+
+        <p text-wrap text-center>
+          une ceinture de plus de 12 000 arbres sur 8 km de long et 50 m de large.
+          Une opération réhabilitation des zones exploitées à Bargny en 2009 a
+          permis de planter plus de 5 000 arbres et d’aménager 3 lacs artiﬁ ciels
+          pour récupérer 300 000 m3 d’eau de pluies.
+
+          Ces programmes sont menés en étroite coopération avec les directeurs des Mines,
+          des Eaux et forêts et de l’Environnement et avec le concours des populations locales.
+        </p>
+      </div>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

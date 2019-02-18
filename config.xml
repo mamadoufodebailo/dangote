@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>sococim</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget id="fd.atlantic.dangote" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>dangote</name>
+    <description>Dangote  Cement Application Mobile</description>
+    <author email="indoye007@yahoo.fr" href="http://agence-atlantic.com/">Atlantic Moubina</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -18,7 +18,7 @@
     <preference name="FadeSplashScreenDuration" value="300" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
-    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="SplashScreenDelay" value="5000" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -82,4 +82,15 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^2.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <plugin name="cordova-sqlite-storage" spec="^2.4.0" />
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
+    </plugin>
+    <plugin name="cordova-plugin-file" spec="^6.0.1" />
+    <plugin name="cordova-plugin-document-viewer" spec="^0.9.10" />
+    <plugin name="cordova-plugin-googlemaps" spec="^2.4.6">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAt4z3YYqkh8kZfgISMz23CYzu5aVl_IT4" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyAt4z3YYqkh8kZfgISMz23CYzu5aVl_IT4" />
+    </plugin>
+    <engine name="android" spec="7.0.0" />
 </widget>

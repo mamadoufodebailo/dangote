@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <a (click)="goToPageBack()">
+            <img height="90" [src]="logo">
+          </a>
+        </ion-col>
+        <ion-col>
+          <ion-title color="success">
+            {{nom|uppercase}}
+          </ion-title>
+          <ion-item>
+            {{focus}}
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list padding>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-icon (click)="goToPageBack()" name="arrow-round-back" slot="icon-only"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-item>
+
+      <div>
+        <h4 style="color: #A1C434;">Devenir distributeur</h4>
+
+        <p text-center text-wrap>
+          Dangote Cement Plc est le plus important producteur de ciment du Nigeria avec des opérations
+          dans 16 pays africains. Dans un effort pour assurer la distribution du moule de ciment au Nigeria,
+          la société cherche actuellement des distributeurs crédibles dans tout le pays.
+        </p>
+
+        <p>
+          La Société assure:
+        </p>
+
+        <ul>
+          <li>48 heures période d'inscription garantie</li>
+          <li>Aucun dépôt de demande / Inscription obligatoire</li>
+        </ul>
+
+        <p text-wrap text-center>
+          Sous réserve: achat minimum d'une remorque soit 600 sacs par mois sur la
+          trésorerie et base porter
+        </p>
+
+        <a text-wrap>Télécharger le formulaire de demande de distributeur ici</a>
+
+        <ion-button (click)="getDemande()">
+          <ion-icon slot="icon-only" name="download"></ion-icon>
+        </ion-button>
+
+      </div>
+
+
+
+    </ion-item>
+
+    <ion-item>
+      <div>
+        <h4 style="color:#A1C434;">Conditions d'inscription</h4>
+
+        <p text-wrap text-center>
+          S'il vous plaît vous assurer que vous avez la copie électronique des documents
+          suivants avant de commencer l'application:
+        </p>
+
+        <ol>
+          <li text-wrap>
+            Certificat d'enregistrement de la société au registre de commerce
+          </li>
+          <li>Une lettre de candidature pour devenir un distributeur</li>
+          <li>copie scannée de la lettre de référence de la Banque</li>
+          <li>photo de passeport du propriétaire / représentant</li>
+        </ol>
+
+        <p text-wrap text-center style="color: red;">
+          Les formulaires dûment remplis / demandes peuvent être envoyées
+          par courrier électronique à cementdistributor@dangote.com
+        </p>
+      </div>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

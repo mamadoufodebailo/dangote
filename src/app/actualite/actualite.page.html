@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <a (click)="goPageBack()">
+          <img height="90" [src]="logo">
+        </a>
+      </ion-col>
+      <ion-col>
+        <ion-title color="primary">
+          {{nom|uppercase}}
+        </ion-title>
+        <ion-item>
+          {{focus}}
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list padding>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-icon (click)="goPageBack()" name="arrow-round-back" slot="icon-only"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-card *ngFor="let actu of actualites">
+      <ion-item>
+        <ion-icon name="pin" slot="start"></ion-icon>
+        <ion-label>{{actu?.date}}</ion-label>
+        <ion-button (click)="onDetail(actu)" fill="outline" slot="end">Voir</ion-button>
+      </ion-item>
+
+      <ion-card-header>
+        <ion-card-title>{{actu?.titre}}</ion-card-title>
+      </ion-card-header>
+
+      <img [src]="actu?.photo">
+
+      <ion-card-content>
+        {{actu?.description}}
+      </ion-card-content>
+    </ion-card>
+
+
+  </ion-list>
+
+</ion-content>

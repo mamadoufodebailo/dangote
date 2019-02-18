@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <a (click)="goPageBack()">
+          <img height="90" [src]="logo">
+        </a>
+      </ion-col>
+      <ion-col>
+        <ion-title color="primary">
+          {{nom|uppercase}}
+        </ion-title>
+        <ion-item>
+          {{focus}}
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content padding>
+  <ion-list padding>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-icon (click)="goPageBack()" name="arrow-round-back" slot="icon-only"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-card *ngFor="let prod of produits">
+      <a (click)="onDetail(prod)">
+        <img [src]="prod.photo" height="250" width="210">
+      </a>
+      <ion-card-content>
+        <h4 text-wrap="" style="color: green">{{prod.text}}</h4>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
+
+
+</ion-content>

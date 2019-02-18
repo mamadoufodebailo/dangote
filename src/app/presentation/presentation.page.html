@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <a (click)="goPageBack()">
+          <img height="90" [src]="logo">
+        </a>
+      </ion-col>
+      <ion-col>
+        <ion-title color="primary">
+          {{nom|uppercase}}
+        </ion-title>
+        <ion-item>
+          {{focus}}
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-icon (click)="goPageBack()" name="arrow-round-back" slot="icon-only"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+    <ion-card>
+        <ion-card-title>
+          <h3 [ngStyle]="{color:couleur,'font-weight': 'bold','text-decoration': 'underline'}"
+              text-center="">Notre vision</h3>
+        </ion-card-title>
+
+      <ion-card-content>
+
+        <p text-center text-wrap>
+          Pour être un leader mondial dans la production de ciment, respecté pour la qualité de nos produits et services
+          et de la façon dont nous menons nos activités.
+        </p>
+
+        <img height="100" src="assets/images/about/about.jpg">
+
+        <h4 [ngStyle]="{color:couleur,'font-weight': 'bold','text-decoration': 'underline'}"
+            text-center="" text-wrap="">
+          Notre mission
+        </h4>
+
+        <ul>
+          <li text-wrap>
+            Pour offrir des rendements solides à nos actionnaires en vendant des produits de haute qualité à des prix abordables,
+            soutenus par un excellent service à la clientèle.
+          </li>
+          <li text-wrap>
+            Pour aider le Nigeria et d'autres pays africains vers l'autonomie et l'autosuffisance dans la production de la plupart
+            produit de base du monde, en créant des installations de production efficaces dans des endroits stratégiques à proximité
+            des marchés de croissance clés.
+          </li>
+          <li text-wrap>
+            Pour offrir des avantages économiques aux communautés locales par le biais d'emplois directs et indirects dans tous les
+            pays où nous exerçons nos activités.
+          </li>
+          <li text-wrap>
+            Pour ouvrir la voie dans des domaines tels que la gouvernance, la durabilité et la conservation de l'environnement et de
+            définir un bon exemple pour d'autres entreprises à suivre.
+          </li>
+        </ul>
+
+        <h4 [ngStyle]="{color:couleur,'font-weight': 'bold','text-decoration': 'underline'}" text-center text-wrap>
+          Nos valeurs
+        </h4>
+
+        <ul>
+          <li text-wrap>
+            Service à la clientèle: En tant qu'organisation de classe mondiale, nous comprenons que nous existons pour servir et
+            satisfaire nos clients. En conséquence, notre orientation client reflète l' intimité, l' intégrité et l' apprentissage.
+          </li>
+          <li text-wrap>
+            Esprit d' entreprise: Nous cherchons continuellement et développer de nouvelles affaires, en utilisant des méthodes état de
+            l'art de conserver notre position de leader du marché.
+          </li>
+          <li text-wrap>
+            Excellence: Nous sommes une grande organisation, travaillant ensemble pour fournir les meilleurs produits et services à nos
+            précieux clients et les parties prenantes. Pour ce faire , nous démontrons le travail d' équipe, le respect et la méritocratie.
+          </li>
+          <li text-wrap>
+            Leadership: Nous prospérons être leaders dans nos affaires, les marchés et les communautés. Pour conduire cela , nous mettons
+            l' accent sur l' amélioration continue, le partenariat et le professionnalisme.
+          </li>
+        </ul>
+
+      </ion-card-content>
+
+    </ion-card>
+
+</ion-content>

@@ -1,12 +1,183 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-toolbar color="light">
+      <ion-grid>
+          <ion-row>
+              <ion-col>
+                  <img height="100" [src]="logo">
+              </ion-col>
+              <ion-col>
+                  <ion-title color="primary">
+                      {{nom|uppercase}}
+                  </ion-title>
+                  <ion-item>
+                      {{focus}}
+                  </ion-item>
+              </ion-col>
+          </ion-row>
+      </ion-grid>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <h5 text-center [ngStyle]="{color:couleur}">COMMANDER</h5>
+                <a (click)="openPage('commande')">
+                    <img height="70" width="100" src="assets/images/commande.jpg">
+                </a>
+            </ion-col>
+            <ion-col>
+                <h5 text-center [ngStyle]="{color:couleur}">DISTRIBUTEUR</h5>
+                <a (click)="openPage('distributeur')">
+                    <img height="70" width="100" src="assets/images/distributeur.png">
+                </a>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-segment [(ngModel)]="page">
+
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+
+        <ion-segment-button value="actualite">
+            ACTUALITE
+        </ion-segment-button>
+
+        <ion-segment-button value="produit">
+            PRODUIT
+        </ion-segment-button>
+
+        <ion-segment-button value="rse">
+            RSE
+        </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="page">
+        <ion-list padding *ngSwitchCase="'actualite'">
+            <ion-card *ngFor="let actu of actualites">
+                <ion-item>
+                    <ion-icon name="pin" slot="start"></ion-icon>
+                    <ion-label>{{actu?.date}}</ion-label>
+                    <ion-button (click)="onDetailActu(actu)" fill="outline" slot="end">Voir</ion-button>
+                </ion-item>
+
+                <ion-card-header>
+                    <ion-card-title>{{actu?.titre}}</ion-card-title>
+                </ion-card-header>
+
+                <img [src]="actu?.photo">
+
+                <ion-card-content>
+                    {{actu?.description}}
+                </ion-card-content>
+            </ion-card>
+        </ion-list>
+
+        <ion-list padding *ngSwitchCase="'produit'">
+            <ion-card *ngFor="let prod of produits">
+                <a (click)="onDetail(prod)">
+                    <img [src]="prod.photo" height="250" width="210">
+                </a>
+                <ion-card-content>
+                    <h4 text-wrap="" style="color: green">{{prod.text}}</h4>
+                </ion-card-content>
+            </ion-card>
+        </ion-list>
+
+        <ion-list padding *ngSwitchCase="'rse'">
+
+        </ion-list>
+
+    </div>
+
+
+    <!--<h2 text-center [ngStyle]="{color:couleur,'font-weight': 'bold','text-decoration': 'underline'}">
+        Faites votre choix
+    </h2>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <h4 text-center [ngStyle]="{color:couleur}">A PROPOS</h4>
+                <a (click)="openPage('presentation')">
+                    <img height="70" width="100" src="assets/images/presentation.png">
+                </a>
+            </ion-col>
+            <ion-col>
+                <h4 text-center [ngStyle]="{color:couleur}">PRODUITS</h4>
+                <a (click)="openPage('produit')">
+                    <img height="70" width="100" src="assets/images/ciment.png">
+                </a>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <h4 text-center [ngStyle]="{color:couleur}">COMMANDER</h4>
+                <a (click)="openPage('commande')">
+                    <img height="70" width="100" src="assets/images/commande.jpg">
+                </a>
+            </ion-col>
+            <ion-col>
+                <h4 text-center [ngStyle]="{color:couleur}">ACTUALITE</h4>
+                <a (click)="openPage('actualite')">
+                    <img height="70" width="100" src="assets/images/actualite.png">
+                </a>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <h4 text-center [ngStyle]="{color:couleur}">DISTRIBUTEUR</h4>
+                <a (click)="openPage('distributeur')">
+                    <img height="70" width="100" src="assets/images/distributeur.png">
+                </a>
+            </ion-col>
+            <ion-col>
+                <h4 text-center [ngStyle]="{color:couleur}">CONTACT</h4>
+                <a (click)="openPage('contact')">
+                    <img height="70" width="100" src="assets/images/contact.png">
+                </a>
+            </ion-col>
+        </ion-row>
+        &lt;!&ndash;<ion-row>
+            <ion-col>
+                <h4 text-center [ngStyle]="{color:couleur}">FONDATION</h4>
+                <a (click)="openPage('fondation')">
+                    <img height="70" width="100" src="assets/images/sococim_fund.png">
+                </a>
+            </ion-col>
+            <ion-col>
+                <h4 text-center [ngStyle]="{color:couleur}">RSE</h4>
+                <a (click)="openPage('rse')">
+                    <img height="70" width="100" src="assets/images/rse.png">
+                </a>
+            </ion-col>
+        </ion-row>&ndash;&gt;
+    </ion-grid>
+
+    <h2 text-center [ngStyle]="{color:couleur,'font-weight': 'bold','text-decoration': 'underline'}">
+        Dangote Cement en image
+    </h2>
+
+    <ion-slides pager="true" [options]="{effect:'flip',autoplay:true,loop:true}">
+        <ion-slide>
+            <img src="assets/images/galerie/dames.jpg">
+        </ion-slide>
+        <ion-slide>
+            <img src="assets/images/galerie/dancing.jpg">
+        </ion-slide>
+        <ion-slide>
+            <img src="assets/images/galerie/groupe.jpg">
+        </ion-slide>
+        <ion-slide>
+            <img src="assets/images/galerie/phanphare.jpg">
+        </ion-slide>
+        <ion-slide>
+            <img src="assets/images/galerie/lancement.jpg">
+        </ion-slide>
+    </ion-slides>
+-->
 </ion-content>

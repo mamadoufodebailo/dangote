@@ -1,0 +1,206 @@
+<ion-header>
+
+  <ion-toolbar color="light">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <a (click)="goToPageBack()">
+            <img height="90" [src]="logo">
+          </a>
+        </ion-col>
+        <ion-col>
+          <ion-title color="primary">
+            {{nom|uppercase}}
+          </ion-title>
+          <ion-item>
+            {{focus}}
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list padding>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-icon (click)="goToPageBack()" name="arrow-round-back" slot="icon-only"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div *ngIf="type == 'particulier';else societe">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <h4 style="color: blue">Particulier</h4>
+            <img height="70" src="assets/images/particulier.png">
+          </ion-col>
+          <ion-col>
+            <ion-button [disabled]="panier.length <= 0" color="primary"
+                        (click)="openPanier()">
+              <ion-icon name="open"></ion-icon>
+            </ion-button>
+            <p>
+              <img height="70" src="assets/images/panier.jpg">
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-button (click)="afficherPage('tonnes')">Par tonnes</ion-button>
+
+      <ion-button (click)="afficherPage('sacs')">Par sacs</ion-button>
+
+      <div *ngIf="page == 'tonnes'">
+        <h4 text-center="" style="color: #A1C434;font-weight: bold;text-decoration: underline">
+          Commande par tonnes
+        </h4>
+
+        <ion-card *ngFor="let p of produits">
+          <ion-card-header>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button [disabled]="p.nombre <= 0" (click)="supprimerPanier(p)" >
+                    <ion-icon slot="icon-only" name="remove"></ion-icon>
+                  </ion-button>
+                </ion-col>
+                <ion-col></ion-col>
+                <ion-col>
+                  <ion-button (click)="ajouterPanier(p)">
+                    <ion-icon slot="icon-only" name="add"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <p>Nombre commande: <span>{{p.nombre}}</span> tonnes</p>
+            <p>Nombre centimes: <span>{{p.centime}}</span></p>
+            <p>Prix: <ion-badge>{{p.prix}}</ion-badge></p>
+
+            <ion-item>
+              <ion-range [disabled]="p.nombre < 1" min="1" max="20" color="success"
+                         [(ngModel)]="p.centime" >
+                <ion-icon slot="start" name="remove"></ion-icon>
+                <ion-icon slot="end" name="add"></ion-icon>
+              </ion-range>
+            </ion-item>
+
+            <ion-card-title>
+              <h6 text-wrap style="color:#A1C434">{{p.text}}</h6>
+            </ion-card-title>
+
+        </ion-card-header>
+
+          <ion-card-content>
+            <img src="{{p.photo}}" height="210" width="190">
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+      <div *ngIf="page == 'sacs'">
+        <h4 text-center="" style="color: #A1C434;font-weight: bold;text-decoration: underline">
+          Commande par sacs
+        </h4>
+
+        <ion-card *ngFor="let p of produits">
+          <ion-card-header>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button [disabled]="p.nombre <= 0" (click)="supprimerPanier(p)" >
+                    <ion-icon slot="icon-only" name="remove"></ion-icon>
+                  </ion-button>
+                </ion-col>
+                <ion-col></ion-col>
+                <ion-col>
+                  <ion-button (click)="ajouterPanier(p)">
+                    <ion-icon slot="icon-only" name="add"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <p>Nombre commande: <span>{{p.nombre}}</span> sacs</p>
+            <p>Prix: <ion-badge>{{p.prix}}</ion-badge></p>
+
+            <ion-card-title>
+              <h6 text-wrap style="color:#A1C434">{{p.text}}</h6>
+            </ion-card-title>
+
+          </ion-card-header>
+
+          <ion-card-content>
+            <img src="{{p.photo}}" height="210" width="190">
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+
+    <ng-template #societe>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <h4 style="color: blue">Entreprise</h4>
+            <img height="70" src="assets/images/entreprise.png">
+          </ion-col>
+          <ion-col>
+            <ion-button [disabled]="panier.length <= 0" color="primary"
+                        (click)="openPanier()">
+              <ion-icon name="open"></ion-icon>
+            </ion-button>
+            <p>
+              <img height="70" src="assets/images/panier.jpg">
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-card *ngFor="let p of produits">
+        <ion-card-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-button [disabled]="p.nombre <= 0" (click)="supprimerPanier(p)" >
+                  <ion-icon slot="icon-only" name="remove"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col></ion-col>
+              <ion-col>
+                <ion-button (click)="ajouterPanier(p)">
+                  <ion-icon slot="icon-only" name="add"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <p>Nombre commande: <span>{{p.nombre}}</span> tonnes</p>
+          <p>Nombre centimes: <span>{{p.centime}}</span></p>
+          <p>Prix: <ion-badge>{{p.prix}}</ion-badge></p>
+
+          <ion-item>
+            <ion-range [disabled]="p.nombre <= 0" min="1" max="20" color="success"
+                       [(ngModel)]="p.centime" >
+              <ion-icon slot="start" name="remove"></ion-icon>
+              <ion-icon slot="end" name="add"></ion-icon>
+            </ion-range>
+          </ion-item>
+
+          <ion-card-title>
+            <h6 text-wrap style="color:#A1C434">{{p.text}}</h6>
+          </ion-card-title>
+
+        </ion-card-header>
+
+        <ion-card-content>
+          <img src="{{p.photo}}" height="210" width="190">
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
+
+  </ion-list>
+
+</ion-content>
